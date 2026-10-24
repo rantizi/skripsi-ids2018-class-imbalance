@@ -25,7 +25,7 @@ harus diunduh langsung dari sumbernya.
 - Dataset asli: CSE-CIC-IDS2018, Canadian Institute for Cybersecurity (CIC),
   University of New Brunswick.
 - Versi yang dipakai: versi yang sudah dibersihkan dan disimpan dalam format
-  parquet, diunduh dari Kaggle: <ISI TAUTAN KAGGLE>
+  parquet, diunduh dari Kaggle: <https://www.kaggle.com/datasets/dhoogla/csecicids2018>
 - Dua berkas yang dipakai:
   - `DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet` (794.812 baris)
   - `Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet` (456.873 baris)
