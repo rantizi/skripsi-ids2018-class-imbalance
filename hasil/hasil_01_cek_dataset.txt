@@ -1,0 +1,92 @@
+PEMERIKSAAN KONDISI DATASET - STUDI KELAYAKAN AWAL
+Penelitian: Analisis Pengaruh Penanganan Class Imbalance terhadap Deteksi
+            Serangan DoS dan Infiltration pada Trafik Jaringan CSE-CIC-IDS2018
+
+======================================================================
+INFORMASI LINGKUNGAN PENGERJAAN
+======================================================================
+Waktu mulai      : 24-10-2026 21:13:41
+Sistem operasi   : Windows-11-10.0.26200-SP0
+Prosesor         : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+Python           : 3.13.7
+pandas           : 2.3.3
+numpy            : 2.2.3
+scikit-learn     : 1.9.0
+pyarrow          : 22.0.0
+Folder data      : D:\Codes\Skripsi\poc_dashboard_jaringan
+
+======================================================================
+BAGIAN 1 - RINGKASAN SELURUH BERKAS PARQUET DI FOLDER DATA
+======================================================================
+Hanya kolom Label yang dibaca, sehingga proses ini ringan.
+Bagian ini menjadi dasar pemilihan dua berkas yang dipakai pada penelitian.
+
+                         berkas  ukuran_MB  total_baris  normal  serangan  persen_serangan                                                label_unik
+       Botnet-Friday-02-03-2018       79.6       771587  627052    144535            18.73                                               Benign, Bot
+Bruteforce-Wednesday-14-02-2018       72.9       619346  525245     94101            15.19                    Benign, FTP-BruteForce, SSH-Bruteforce
+       DDoS1-Tuesday-20-02-2018       85.3       954846  379482    575364            60.26                            Benign, DDoS attacks-LOIC-HTTP
+     DDoS2-Wednesday-21-02-2018       31.9       561396  360805    200591            35.73            Benign, DDOS attack-HOIC, DDOS attack-LOIC-UDP
+       DoS1-Thursday-15-02-2018       94.0       794812  743498     51314             6.46      Benign, DoS attacks-GoldenEye, DoS attacks-Slowloris
+         DoS2-Friday-16-02-2018       55.3       591873  446619    145254            24.54        Benign, DoS attacks-Hulk, DoS attacks-SlowHTTPTest
+    Infil1-Wednesday-28-02-2018       48.6       456873  400424     56449            12.36                                     Benign, Infilteration
+     Infil2-Thursday-01-03-2018       27.9       249170  187136     62034            24.90                                     Benign, Infilteration
+       Web1-Thursday-22-02-2018       99.1       830224  829883       341             0.04 Benign, Brute Force -Web, Brute Force -XSS, SQL Injection
+         Web2-Friday-23-02-2018       96.7       829405  828864       541             0.07 Benign, Brute Force -Web, Brute Force -XSS, SQL Injection
+
+======================================================================
+BAGIAN 2 - PEMERIKSAAN DETAIL SKENARIO DOS
+======================================================================
+Berkas      : DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet
+Ukuran      : 94.0 MB
+Waktu muat  : 0.33 detik
+Jumlah baris: 794.812
+Jumlah kolom: 78 (terdiri atas 77 kolom fitur + 1 kolom Label)
+Kolom fitur non-numerik: 0 (seluruh fitur sudah numerik, encoding tidak diperlukan)
+
+--- Jumlah dan persentase data per kelas ---
+  Benign                       :      743.498  (93,54%)
+  DoS attacks-GoldenEye        :       41.406  (5,21%)
+  DoS attacks-Slowloris        :        9.908  (1,25%)
+  TOTAL                        :      794.812  (100,00%)
+
+--- Distribusi label biner (0 = Benign, 1 = selain Benign) ---
+  0 (normal)   :      743.498  (93,54%)
+  1 (serangan) :       51.314  (6,46%)
+
+--- Pemeriksaan kualitas data ---
+  Duplikasi baris : 0
+  Missing value   : 0
+  Nilai infinity  : 0
+  Waktu periksa   : 5.69 detik
+  Kesimpulan      : data bersih, tidak ada baris yang perlu dibuang.
+
+======================================================================
+BAGIAN 2 - PEMERIKSAAN DETAIL SKENARIO INFILTRATION
+======================================================================
+Berkas      : Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet
+Ukuran      : 48.6 MB
+Waktu muat  : 0.16 detik
+Jumlah baris: 456.873
+Jumlah kolom: 78 (terdiri atas 77 kolom fitur + 1 kolom Label)
+Kolom fitur non-numerik: 0 (seluruh fitur sudah numerik, encoding tidak diperlukan)
+
+--- Jumlah dan persentase data per kelas ---
+  Benign                       :      400.424  (87,64%)
+  Infilteration                :       56.449  (12,36%)
+  TOTAL                        :      456.873  (100,00%)
+
+--- Distribusi label biner (0 = Benign, 1 = selain Benign) ---
+  0 (normal)   :      400.424  (87,64%)
+  1 (serangan) :       56.449  (12,36%)
+
+--- Pemeriksaan kualitas data ---
+  Duplikasi baris : 0
+  Missing value   : 0
+  Nilai infinity  : 0
+  Waktu periksa   : 2.19 detik
+  Kesimpulan      : data bersih, tidak ada baris yang perlu dibuang.
+
+======================================================================
+SELESAI
+======================================================================
+Total waktu eksekusi: 11.89 detik

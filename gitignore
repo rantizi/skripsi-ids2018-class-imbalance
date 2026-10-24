@@ -1,0 +1,22 @@
+# Berkas dataset tidak diunggah ke repository.
+# Ukurannya besar dan harus diunduh langsung dari sumber resminya.
+*.parquet
+*.csv
+
+# Berkas sementara Python
+__pycache__/
+*.pyc
+
+# Lingkungan virtual
+venv/
+.venv/
+env/
+
+# Berkas sementara Office dan sistem
+~$*
+Thumbs.db
+.DS_Store
+
+# Pengaturan editor
+.vscode/
+.idea/

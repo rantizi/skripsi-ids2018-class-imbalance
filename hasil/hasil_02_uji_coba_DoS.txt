@@ -1,0 +1,198 @@
+======================================================================
+STUDI KELAYAKAN AWAL - SKENARIO DOS
+Model: Random Forest tanpa penanganan class imbalance
+======================================================================
+
+--- Informasi lingkungan pengerjaan ---
+Waktu mulai    : 24-10-2026 21:18:10
+Sistem operasi : Windows-11-10.0.26200-SP0
+Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+Python         : 3.13.7
+pandas         : 2.3.3
+numpy          : 2.2.3
+scikit-learn   : 1.9.0
+Berkas data    : DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet
+
+--- 1. Memuat data ---
+Waktu muat     : 0.37 detik
+Jumlah baris   : 794.812
+Jumlah kolom   : 78
+
+--- 2. Pemeriksaan ulang kondisi data ---
+Duplikasi baris: 0
+Missing value  : 0
+Nilai infinity : 0
+Kondisi data   : bersih, seluruh baris dipakai tanpa pembuangan.
+
+--- 3. Pembentukan label biner (0 = Benign, 1 = selain Benign) ---
+Nilai label yang ada: ['Benign', 'DoS attacks-GoldenEye', 'DoS attacks-Slowloris']
+Kelas 0 (normal)   : 743.498
+Kelas 1 (serangan) : 51.314  (6,46% dari seluruh data)
+Jumlah fitur       : 77
+Fitur non-numerik  : tidak ada, pengodean kategorikal tidak diperlukan.
+
+--- 4. Pembagian data latih dan data uji ---
+Metode         : pembagian berstrata, random_state=42
+Data latih     : 556.368 baris (normal 520.448, serangan 35.920)
+Data uji       : 238.444 baris (normal 223.050, serangan 15.394)
+
+--- 5. Pelatihan Random Forest ---
+Konfigurasi    : n_estimators=100, random_state=42, tanpa penanganan class imbalance
+Waktu pelatihan: 33.87 detik
+Waktu prediksi : 0.43 detik
+
+--- 6. Hasil evaluasi pada data uji ---
+Akurasi   : 0.9999  (99,99%)
+Precision : 0.9988  (99,88%)
+Recall    : 0.9992  (99,92%)
+F1-score  : 0.9990  (99,90%)
+
+Confusion matrix:
+  True Negative  (normal diprediksi normal)     : 223.032
+  False Positive (normal diprediksi serangan)   : 18
+  False Negative (serangan diprediksi normal)   : 12
+  True Positive  (serangan diprediksi serangan) : 15.382
+
+  Dari 223.050 trafik normal pada data uji, 18 salah diklasifikasikan sebagai serangan.
+  Dari 15.394 serangan pada data uji, 12 gagal dikenali.
+
+--- 7. Pemeriksaan kebocoran data 1: Decision Tree dangkal ---
+Pohon dilatih pada data latih, akurasinya diukur pada data uji.
+Akurasi yang sudah sangat tinggi pada kedalaman 1 sampai 2 menandakan
+kemungkinan adanya satu fitur yang memisahkan kelas secara berlebihan.
+  Kedalaman 1: akurasi = 0.9930  (99,30%)
+  Kedalaman 2: akurasi = 0.9947  (99,47%)
+  Kedalaman 3: akurasi = 0.9980  (99,80%)
+
+--- 8. Pemeriksaan kebocoran data 2: sepuluh fitur terpenting ---
+   1. Fwd Seg Size Min               0.288886
+   2. Init Fwd Win Bytes             0.138364
+   3. Fwd Header Length              0.043534
+   4. Flow IAT Max                   0.033917
+   5. Bwd IAT Max                    0.021319
+   6. Flow IAT Mean                  0.020836
+   7. Fwd IAT Max                    0.019383
+   8. Fwd Packets/s                  0.019238
+   9. Flow Duration                  0.018799
+  10. Total Backward Packets         0.018775
+
+--- 9. Pemeriksaan kebocoran data 3: sebaran lima fitur teratas per kelas ---
+Sebaran dihitung pada DATA LATIH saja, agar data uji tetap tidak tersentuh.
+Fitur yang rentang nilainya sama sekali tidak bertumpang tindih antara
+kelas normal dan kelas serangan perlu diperiksa lebih lanjut.
+
+  Fitur: Fwd Seg Size Min
+  Kelas 0 (normal):
+    count    520448.000000
+    mean         15.681121
+    std           6.443149
+    min           0.000000
+    25%           8.000000
+    50%          20.000000
+    75%          20.000000
+    max          56.000000
+  Kelas 1 (serangan):
+    count    35920.000000
+    mean        32.332294
+    std          1.681855
+    min         20.000000
+    25%         32.000000
+    50%         32.000000
+    75%         32.000000
+    max         40.000000
+
+  Fitur: Init Fwd Win Bytes
+  Kelas 0 (normal):
+    count    520448.000000
+    mean       5504.572391
+    std       10412.146803
+    min          -1.000000
+    25%          -1.000000
+    50%         279.000000
+    75%        8192.000000
+    max       65535.000000
+  Kelas 1 (serangan):
+    count    35920.000000
+    mean     17909.313307
+    std      12598.705040
+    min          0.000000
+    25%        226.000000
+    50%      26883.000000
+    75%      26883.000000
+    max      26883.000000
+
+  Fitur: Fwd Header Length
+  Kelas 0 (normal):
+    count    520448.000000
+    mean        129.045176
+    std         962.850116
+    min           0.000000
+    25%           8.000000
+    50%          60.000000
+    75%         172.000000
+    max      204920.000000
+  Kelas 1 (serangan):
+    count    35920.000000
+    mean       154.635969
+    std        119.697200
+    min         32.000000
+    25%         64.000000
+    50%        136.000000
+    75%        168.000000
+    max        608.000000
+
+  Fitur: Flow IAT Max
+  Kelas 0 (normal):
+    count    5.204480e+05
+    mean     8.235296e+06
+    std      1.840917e+07
+    min      1.000000e+00
+    25%      1.400000e+03
+    50%      1.222445e+05
+    75%      5.330716e+06
+    max      1.199915e+08
+  Kelas 1 (serangan):
+    count    3.592000e+04
+    mean     1.791420e+07
+    std      2.748636e+07
+    min      1.000000e+00
+    25%      2.170926e+06
+    50%      6.432728e+06
+    75%      1.446685e+07
+    max      1.194643e+08
+
+  Fitur: Bwd IAT Max
+  Kelas 0 (normal):
+    count    5.204480e+05
+    mean     4.142314e+06
+    std      1.255603e+07
+    min      0.000000e+00
+    25%      0.000000e+00
+    50%      1.000000e+00
+    75%      9.531390e+05
+    max      1.199131e+08
+  Kelas 1 (serangan):
+    count    3.592000e+04
+    mean     1.437593e+07
+    std      2.860605e+07
+    min      0.000000e+00
+    25%      0.000000e+00
+    50%      5.002774e+06
+    75%      6.930220e+06
+    max      1.194643e+08
+
+======================================================================
+RINGKASAN SKENARIO DOS
+======================================================================
+Akurasi        : 99,99%
+Precision      : 99,88%
+Recall         : 99,92%
+F1-score       : 99,90%
+False Positive : 18 dari 223.050 trafik normal
+False Negative : 12 dari 15.394 serangan
+Waktu pelatihan: 33.87 detik
+Waktu seluruh tahapan skenario ini: 56.07 detik
+
+Hasil di atas merupakan studi kelayakan awal. Angka ini belum melalui
+validasi silang, pemilihan hyperparameter, maupun penanganan class
+imbalance, sehingga belum dapat dianggap sebagai hasil akhir penelitian.
