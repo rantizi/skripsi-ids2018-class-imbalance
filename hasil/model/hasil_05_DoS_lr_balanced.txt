@@ -1,0 +1,44 @@
+======================================================================
+SKENARIO DOS - LOGISTIC REGRESSION - KONDISI BALANCED
+======================================================================
+
+Waktu mulai    : 25-10-2026 13:57:14
+Sistem operasi : Windows-11-10.0.26200-SP0
+Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+Python         : 3.13.7
+pandas         : 2.3.3
+numpy          : 2.2.3
+scikit-learn   : 1.9.0
+
+--- Konfigurasi ---
+Model              : Logistic Regression
+Penanganan imbalance: class_weight = balanced
+Hyperparameter     : {'clf__C': 10}
+  diambil dari hasil validasi silang, F1 = 0.9915
+Data latih         : 556.368 baris
+Data uji           : 238.444 baris (normal 223.050, serangan 15.394)
+
+--- Pelatihan ---
+Waktu pelatihan    : 14.84 detik
+Waktu prediksi     : 0.48 detik
+
+--- Metrik pada data uji ---
+Precision          : 0.9707  (97,07%)
+Recall             : 0.9994  (99,94%)
+F1-score           : 0.9848  (98,48%)
+PR-AUC             : 0.9948
+  pembanding acak    : 0.0646 (proporsi kelas serangan pada data uji)
+Akurasi (pembanding): 0.9980  (99,80%)
+
+Confusion matrix:
+  True Negative  (normal diprediksi normal)     : 222.586
+  False Positive (normal diprediksi serangan)   : 464
+  False Negative (serangan diprediksi normal)   : 10
+  True Positive  (serangan diprediksi serangan) : 15.384
+
+Probabilitas prediksi disimpan ke: hasil\model/proba_DoS_lr_balanced.npy
+
+Metrik disimpan ke: hasil\model/metrik_DoS_lr_balanced.json
+
+======================================================================
+Total waktu: 15.54 detik

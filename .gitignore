@@ -3,6 +3,9 @@
 *.parquet
 *.csv
 
+# Berkas hasil penelitian tetap diikutkan, meskipun berekstensi csv.
+!hasil/**/*.csv
+
 # Berkas sementara Python
 __pycache__/
 *.pyc

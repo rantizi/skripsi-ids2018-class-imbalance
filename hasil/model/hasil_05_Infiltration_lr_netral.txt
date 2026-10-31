@@ -1,0 +1,44 @@
+======================================================================
+SKENARIO INFILTRATION - LOGISTIC REGRESSION - KONDISI NETRAL
+======================================================================
+
+Waktu mulai    : 25-10-2026 14:00:56
+Sistem operasi : Windows-11-10.0.26200-SP0
+Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+Python         : 3.13.7
+pandas         : 2.3.3
+numpy          : 2.2.3
+scikit-learn   : 1.9.0
+
+--- Konfigurasi ---
+Model              : Logistic Regression
+Penanganan imbalance: tanpa penanganan
+Hyperparameter     : {'clf__C': 0.01}
+  diambil dari hasil validasi silang, F1 = 0.0001
+Data latih         : 319.811 baris
+Data uji           : 137.062 baris (normal 120.127, serangan 16.935)
+
+--- Pelatihan ---
+Waktu pelatihan    : 4.77 detik
+Waktu prediksi     : 0.29 detik
+
+--- Metrik pada data uji ---
+Precision          : 0.0000  (0,00%)
+Recall             : 0.0000  (0,00%)
+F1-score           : 0.0000  (0,00%)
+PR-AUC             : 0.1513
+  pembanding acak    : 0.1236 (proporsi kelas serangan pada data uji)
+Akurasi (pembanding): 0.8764  (87,64%)
+
+Confusion matrix:
+  True Negative  (normal diprediksi normal)     : 120.127
+  False Positive (normal diprediksi serangan)   : 0
+  False Negative (serangan diprediksi normal)   : 16.935
+  True Positive  (serangan diprediksi serangan) : 0
+
+Probabilitas prediksi disimpan ke: hasil\model/proba_Infiltration_lr_netral.npy
+
+Metrik disimpan ke: hasil\model/metrik_Infiltration_lr_netral.json
+
+======================================================================
+Total waktu: 5.19 detik

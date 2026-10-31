@@ -1,0 +1,113 @@
+RINGKASAN HASIL EKSPERIMEN UTAMA
+
+Waktu mulai    : 25-10-2026 18:49:01
+Sistem operasi : Windows-11-10.0.26200-SP0
+Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+Python         : 3.13.7
+pandas         : 2.3.3
+numpy          : 2.2.3
+scikit-learn   : 1.9.0
+
+======================================================================
+1. HYPERPARAMETER TERPILIH
+======================================================================
+
+    skenario               model hyperparameter_terpilih  f1_validasi_silang  simpangan_baku  selisih_dengan_peringkat_2
+         DoS Logistic Regression                  C = 10            0.991480        0.000711                    0.001054
+         DoS       Decision Tree        max_depth = None            0.998720        0.000505                    0.000056
+         DoS       Random Forest      n_estimators = 200            0.999039        0.000297                    0.000014
+Infiltration Logistic Regression                C = 0.01            0.000051        0.000101                    0.000000
+Infiltration       Decision Tree        max_depth = None            0.097220        0.001290                    0.037785
+Infiltration       Random Forest      n_estimators = 100            0.053361        0.002002                    0.001299
+
+Kolom selisih_dengan_peringkat_2 menunjukkan jarak skor antara kandidat
+terpilih dan kandidat terbaik berikutnya. Bila nilainya lebih kecil
+daripada simpangan baku antarlipatan, pemilihan tersebut tidak dapat
+ditafsirkan sebagai keunggulan yang bermakna.
+
+======================================================================
+2. METRIK 12 KOMBINASI
+======================================================================
+
+    skenario               model  kondisi  precision   recall       f1   pr_auc  akurasi
+         DoS Logistic Regression   netral   0.986308 0.996752 0.991503 0.996134 0.998897
+         DoS Logistic Regression balanced   0.970722 0.999350 0.984828 0.994764 0.998012
+         DoS       Decision Tree   netral   0.998701 0.999091 0.998896 0.998034 0.999857
+         DoS       Decision Tree balanced   0.998507 0.999415 0.998961 0.998220 0.999866
+         DoS       Random Forest   netral   0.998831 0.999285 0.999058 0.999937 0.999878
+         DoS       Random Forest balanced   0.998637 0.999675 0.999156 0.999204 0.999891
+Infiltration Logistic Regression   netral   0.000000 0.000000 0.000000 0.151261 0.876443
+Infiltration Logistic Regression balanced   0.139220 0.649070 0.229265 0.151516 0.460791
+Infiltration       Decision Tree   netral   0.088738 0.078536 0.083326 0.119451 0.786498
+Infiltration       Decision Tree balanced   0.082423 0.105639 0.092598 0.119172 0.744189
+Infiltration       Random Forest   netral   0.053021 0.037260 0.043765 0.130587 0.798821
+Infiltration       Random Forest balanced   0.099573 0.130676 0.113023 0.128579 0.746582
+
+Confusion matrix:
+    skenario               model  kondisi  true_negative  false_positive  false_negative  true_positive  jumlah_normal  jumlah_serangan
+         DoS Logistic Regression   netral         222837             213              50          15344         223050            15394
+         DoS Logistic Regression balanced         222586             464              10          15384         223050            15394
+         DoS       Decision Tree   netral         223030              20              14          15380         223050            15394
+         DoS       Decision Tree balanced         223027              23               9          15385         223050            15394
+         DoS       Random Forest   netral         223032              18              11          15383         223050            15394
+         DoS       Random Forest balanced         223029              21               5          15389         223050            15394
+Infiltration Logistic Regression   netral         120127               0           16935              0         120127            16935
+Infiltration Logistic Regression balanced          52165           67962            5943          10992         120127            16935
+Infiltration       Decision Tree   netral         106469           13658           15605           1330         120127            16935
+Infiltration       Decision Tree balanced         100211           19916           15146           1789         120127            16935
+Infiltration       Random Forest   netral         108857           11270           16304            631         120127            16935
+Infiltration       Random Forest balanced         100115           20012           14722           2213         120127            16935
+
+======================================================================
+3. PERBANDINGAN KONDISI NETRAL DAN BALANCED
+======================================================================
+
+    skenario               model  recall_netral  recall_balanced  recall_selisih  pr_auc_netral  pr_auc_balanced  pr_auc_selisih
+         DoS Logistic Regression       0.996752         0.999350        0.002598       0.996134         0.994764       -0.001370
+         DoS       Decision Tree       0.999091         0.999415        0.000325       0.998034         0.998220        0.000186
+         DoS       Random Forest       0.999285         0.999675        0.000390       0.999937         0.999204       -0.000733
+Infiltration Logistic Regression       0.000000         0.649070        0.649070       0.151261         0.151516        0.000256
+Infiltration       Decision Tree       0.078536         0.105639        0.027104       0.119451         0.119172       -0.000280
+Infiltration       Random Forest       0.037260         0.130676        0.093416       0.130587         0.128579       -0.002008
+
+Recall dan PR-AUC disandingkan karena keduanya menjawab pertanyaan yang
+berbeda. Recall diukur pada satu ambang keputusan, sedangkan PR-AUC
+mengukur kualitas pemeringkatan pada seluruh ambang. Kenaikan recall yang
+tidak disertai kenaikan PR-AUC menunjukkan pergeseran ambang keputusan,
+bukan perbaikan kemampuan model membedakan kedua kelas.
+
+======================================================================
+4. PERBANDINGAN FEATURE IMPORTANCE (RANDOM FOREST)
+======================================================================
+
+                        DoS_netral_peringkat  DoS_balanced_peringkat  Infiltration_netral_peringkat  Infiltration_balanced_peringkat
+fitur                                                                                                                               
+Flow IAT Max                               4                       4                              1                                1
+Fwd Seg Size Min                           1                       1                             57                               57
+Init Fwd Win Bytes                         2                       2                              6                                9
+Flow Duration                              7                      17                              2                                2
+Fwd Header Length                          3                       3                             50                               48
+Flow IAT Mean                              8                       6                              5                                3
+Fwd Packets/s                              5                       7                              3                                4
+Flow Packets/s                            12                       5                              4                                5
+Flow IAT Min                               6                      19                              7                                6
+Flow Bytes/s                              32                      10                              8                                7
+Bwd Packets/s                             25                       8                              9                                8
+Subflow Bwd Packets                       14                       9                             55                               55
+Total Backward Packets                     9                      11                             54                               54
+Fwd IAT Max                               15                      16                             10                               10
+Bwd IAT Max                               10                      43                             17                               16
+Fwd IAT Total                             17                      20                             11                               11
+Fwd IAT Min                               11                      12                             14                               13
+Flow IAT Std                              21                      28                             12                               12
+Fwd IAT Mean                              13                      15                             13                               14
+Bwd Packet Length Max                     31                      13                             43                               42
+
+Ditampilkan 20 fitur yang menempati peringkat
+tertinggi pada setidaknya satu dari empat kombinasi Random Forest.
+Nilai importance selengkapnya ada pada berkas CSV.
+
+======================================================================
+SELESAI
+======================================================================
+Seluruh berkas ringkasan disimpan di: D:\Codes\Skripsi\dashboard_jaringan\hasil\ringkasan

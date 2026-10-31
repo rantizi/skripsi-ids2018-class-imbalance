@@ -1,0 +1,73 @@
+{
+  "skenario": "DoS",
+  "kode_model": "lr",
+  "nama_model": "Logistic Regression",
+  "kondisi_validasi": "netral, tanpa class_weight",
+  "kriteria_pemilihan": "f1",
+  "jumlah_lipatan": 5,
+  "random_state": 42,
+  "jumlah_data_latih": 556368,
+  "jumlah_fitur": 77,
+  "kandidat_diuji": {
+    "clf__C": [
+      0.01,
+      0.1,
+      1,
+      10
+    ]
+  },
+  "hasil_setiap_kandidat": [
+    {
+      "parameter": {
+        "clf__C": 10
+      },
+      "skor_rata_rata": 0.9914803612915313,
+      "skor_simpangan_baku": 0.0007105902371196268,
+      "waktu_latih_rata_rata_detik": 6.032681274414062,
+      "peringkat": 1
+    },
+    {
+      "parameter": {
+        "clf__C": 1
+      },
+      "skor_rata_rata": 0.9904263369751938,
+      "skor_simpangan_baku": 0.0007917451191820512,
+      "waktu_latih_rata_rata_detik": 5.653191804885864,
+      "peringkat": 2
+    },
+    {
+      "parameter": {
+        "clf__C": 0.1
+      },
+      "skor_rata_rata": 0.9894070001737034,
+      "skor_simpangan_baku": 0.0007737052783683222,
+      "waktu_latih_rata_rata_detik": 4.633281135559082,
+      "peringkat": 3
+    },
+    {
+      "parameter": {
+        "clf__C": 0.01
+      },
+      "skor_rata_rata": 0.9589846000591603,
+      "skor_simpangan_baku": 0.0019751103418901707,
+      "waktu_latih_rata_rata_detik": 3.837068462371826,
+      "peringkat": 4
+    }
+  ],
+  "hyperparameter_terpilih": {
+    "clf__C": 10
+  },
+  "skor_f1_terbaik": 0.9914803612915313,
+  "waktu_pencarian_detik": 103.02,
+  "jumlah_peringatan_konvergensi": 0,
+  "max_iter_logistic_regression": 1000,
+  "lingkungan": [
+    "Waktu mulai    : 25-10-2026 13:13:22",
+    "Sistem operasi : Windows-11-10.0.26200-SP0",
+    "Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD",
+    "Python         : 3.13.7",
+    "pandas         : 2.3.3",
+    "numpy          : 2.2.3",
+    "scikit-learn   : 1.9.0"
+  ]
+}

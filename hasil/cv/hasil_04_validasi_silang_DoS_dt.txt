@@ -1,0 +1,45 @@
+======================================================================
+VALIDASI SILANG - SKENARIO DOS - DECISION TREE
+======================================================================
+
+Waktu mulai    : 24-10-2026 23:27:57
+Sistem operasi : Windows-11-10.0.26200-SP0
+Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+Python         : 3.13.7
+pandas         : 2.3.3
+numpy          : 2.2.3
+scikit-learn   : 1.9.0
+
+--- Menyiapkan data ---
+Waktu siapkan  : 3.62 detik
+Data latih     : 556.368 baris, 77 fitur
+  kelas normal   : 520.448
+  kelas serangan : 35.920 (6,46%)
+Data uji       : 238.444 baris (tidak dipakai pada tahap ini)
+
+--- Pengaturan validasi silang ---
+Model          : Decision Tree
+Kondisi        : netral, tanpa class_weight
+Pembagian      : StratifiedKFold(5, shuffle=True, random_state=42)
+Kriteria       : f1 pada kelas positif
+Kandidat       : {'max_depth': [None, 5, 10, 15]}
+Jumlah pelatihan yang dijalankan: 4 kandidat x 5 lipatan = 20 kali
+
+Proses ini memakan waktu. Kemajuannya tercetak di layar selama berjalan.
+
+--- Hasil validasi silang ---
+Waktu pencarian: 153.07 detik (2.6 menit)
+
+Skor F1 rata-rata untuk setiap kandidat, diurutkan dari yang terbaik:
+  1. max_depth = None             F1 = 0.9987 (simpangan baku 0.0005, rata-rata 10.1 detik per pelatihan)
+  2. max_depth = 15               F1 = 0.9987 (simpangan baku 0.0005, rata-rata 6.6 detik per pelatihan)
+  3. max_depth = 10               F1 = 0.9977 (simpangan baku 0.0005, rata-rata 7.0 detik per pelatihan)
+  4. max_depth = 5                F1 = 0.9939 (simpangan baku 0.0009, rata-rata 6.6 detik per pelatihan)
+
+Hyperparameter terpilih : {'max_depth': None}
+Skor F1 terbaik         : 0.9987
+
+Hyperparameter terpilih disimpan ke: hasil\cv/cv_DoS_dt.json
+
+======================================================================
+Total waktu: 156.78 detik

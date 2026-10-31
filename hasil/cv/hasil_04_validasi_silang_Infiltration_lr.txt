@@ -1,0 +1,47 @@
+======================================================================
+VALIDASI SILANG - SKENARIO INFILTRATION - LOGISTIC REGRESSION
+======================================================================
+
+Waktu mulai    : 25-10-2026 13:13:22
+Sistem operasi : Windows-11-10.0.26200-SP0
+Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+Python         : 3.13.7
+pandas         : 2.3.3
+numpy          : 2.2.3
+scikit-learn   : 1.9.0
+
+--- Menyiapkan data ---
+Waktu siapkan  : 0.78 detik
+Data latih     : 319.811 baris, 77 fitur
+  kelas normal   : 280.297
+  kelas serangan : 39.514 (12,36%)
+Data uji       : 137.062 baris (tidak dipakai pada tahap ini)
+
+--- Pengaturan validasi silang ---
+Model          : Logistic Regression
+Kondisi        : netral, tanpa class_weight
+Pembagian      : StratifiedKFold(5, shuffle=True, random_state=42)
+Kriteria       : f1 pada kelas positif
+Kandidat       : {'clf__C': [0.01, 0.1, 1, 10]}
+Jumlah pelatihan yang dijalankan: 4 kandidat x 5 lipatan = 20 kali
+
+Proses ini memakan waktu. Kemajuannya tercetak di layar selama berjalan.
+
+--- Hasil validasi silang ---
+Waktu pencarian: 90.59 detik (1.5 menit)
+
+Skor F1 rata-rata untuk setiap kandidat, diurutkan dari yang terbaik:
+  1. clf__C = 0.01                F1 = 0.0001 (simpangan baku 0.0001, rata-rata 2.9 detik per pelatihan)
+  2. clf__C = 10                  F1 = 0.0001 (simpangan baku 0.0001, rata-rata 5.4 detik per pelatihan)
+  3. clf__C = 0.1                 F1 = 0.0000 (simpangan baku 0.0000, rata-rata 4.5 detik per pelatihan)
+  3. clf__C = 1                   F1 = 0.0000 (simpangan baku 0.0000, rata-rata 5.1 detik per pelatihan)
+
+Hyperparameter terpilih : {'clf__C': 0.01}
+Skor F1 terbaik         : 0.0001
+
+Tidak ada peringatan non-konvergensi dengan max_iter = 1000.
+
+Hyperparameter terpilih disimpan ke: hasil\cv/cv_Infiltration_lr.json
+
+======================================================================
+Total waktu: 91.39 detik

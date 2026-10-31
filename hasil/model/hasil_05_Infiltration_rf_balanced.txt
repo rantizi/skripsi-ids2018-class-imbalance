@@ -1,0 +1,58 @@
+======================================================================
+SKENARIO INFILTRATION - RANDOM FOREST - KONDISI BALANCED
+======================================================================
+
+Waktu mulai    : 25-10-2026 14:03:51
+Sistem operasi : Windows-11-10.0.26200-SP0
+Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+Python         : 3.13.7
+pandas         : 2.3.3
+numpy          : 2.2.3
+scikit-learn   : 1.9.0
+
+--- Konfigurasi ---
+Model              : Random Forest
+Penanganan imbalance: class_weight = balanced
+Hyperparameter     : {'n_estimators': 100}
+  diambil dari hasil validasi silang, F1 = 0.0534
+Data latih         : 319.811 baris
+Data uji           : 137.062 baris (normal 120.127, serangan 16.935)
+
+--- Pelatihan ---
+Waktu pelatihan    : 56.50 detik
+Waktu prediksi     : 5.12 detik
+
+--- Metrik pada data uji ---
+Precision          : 0.0996  (9,96%)
+Recall             : 0.1307  (13,07%)
+F1-score           : 0.1130  (11,30%)
+PR-AUC             : 0.1286
+  pembanding acak    : 0.1236 (proporsi kelas serangan pada data uji)
+Akurasi (pembanding): 0.7466  (74,66%)
+
+Confusion matrix:
+  True Negative  (normal diprediksi normal)     : 100.115
+  False Positive (normal diprediksi serangan)   : 20.012
+  False Negative (serangan diprediksi normal)   : 14.722
+  True Positive  (serangan diprediksi serangan) : 2.213
+
+Probabilitas prediksi disimpan ke: hasil\model/proba_Infiltration_rf_balanced.npy
+
+--- Sepuluh fitur dengan importance tertinggi ---
+   1. Flow IAT Max                   0.067168
+   2. Flow Duration                  0.058349
+   3. Flow IAT Mean                  0.055954
+   4. Fwd Packets/s                  0.055644
+   5. Flow Packets/s                 0.055435
+   6. Flow IAT Min                   0.054036
+   7. Flow Bytes/s                   0.050722
+   8. Bwd Packets/s                  0.047921
+   9. Init Fwd Win Bytes             0.047394
+  10. Fwd IAT Max                    0.033188
+
+Peringkat seluruh fitur disimpan ke: hasil\model/importance_Infiltration_rf_balanced.csv
+
+Metrik disimpan ke: hasil\model/metrik_Infiltration_rf_balanced.json
+
+======================================================================
+Total waktu: 61.84 detik

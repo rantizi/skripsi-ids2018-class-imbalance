@@ -1,0 +1,58 @@
+======================================================================
+SKENARIO DOS - RANDOM FOREST - KONDISI NETRAL
+======================================================================
+
+Waktu mulai    : 25-10-2026 13:58:06
+Sistem operasi : Windows-11-10.0.26200-SP0
+Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+Python         : 3.13.7
+pandas         : 2.3.3
+numpy          : 2.2.3
+scikit-learn   : 1.9.0
+
+--- Konfigurasi ---
+Model              : Random Forest
+Penanganan imbalance: tanpa penanganan
+Hyperparameter     : {'n_estimators': 200}
+  diambil dari hasil validasi silang, F1 = 0.9990
+Data latih         : 556.368 baris
+Data uji           : 238.444 baris (normal 223.050, serangan 15.394)
+
+--- Pelatihan ---
+Waktu pelatihan    : 83.34 detik
+Waktu prediksi     : 2.01 detik
+
+--- Metrik pada data uji ---
+Precision          : 0.9988  (99,88%)
+Recall             : 0.9993  (99,93%)
+F1-score           : 0.9991  (99,91%)
+PR-AUC             : 0.9999
+  pembanding acak    : 0.0646 (proporsi kelas serangan pada data uji)
+Akurasi (pembanding): 0.9999  (99,99%)
+
+Confusion matrix:
+  True Negative  (normal diprediksi normal)     : 223.032
+  False Positive (normal diprediksi serangan)   : 18
+  False Negative (serangan diprediksi normal)   : 11
+  True Positive  (serangan diprediksi serangan) : 15.383
+
+Probabilitas prediksi disimpan ke: hasil\model/proba_DoS_rf_netral.npy
+
+--- Sepuluh fitur dengan importance tertinggi ---
+   1. Fwd Seg Size Min               0.271184
+   2. Init Fwd Win Bytes             0.141940
+   3. Fwd Header Length              0.041025
+   4. Flow IAT Max                   0.024604
+   5. Fwd Packets/s                  0.022341
+   6. Flow IAT Min                   0.021712
+   7. Flow Duration                  0.021030
+   8. Flow IAT Mean                  0.020523
+   9. Total Backward Packets         0.020431
+  10. Bwd IAT Max                    0.018996
+
+Peringkat seluruh fitur disimpan ke: hasil\model/importance_DoS_rf_netral.csv
+
+Metrik disimpan ke: hasil\model/metrik_DoS_rf_netral.json
+
+======================================================================
+Total waktu: 85.61 detik

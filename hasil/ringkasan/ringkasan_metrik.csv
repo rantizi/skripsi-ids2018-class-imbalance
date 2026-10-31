@@ -1,0 +1,13 @@
+skenario,model,kondisi,hyperparameter,precision,recall,f1,pr_auc,pr_auc_pembanding_acak,akurasi,waktu_pelatihan_detik
+DoS,Logistic Regression,netral,C = 10,0.986308,0.996752,0.991503,0.996134,0.06456,0.998897,10.4
+DoS,Logistic Regression,balanced,C = 10,0.970722,0.99935,0.984828,0.994764,0.06456,0.998012,14.84
+DoS,Decision Tree,netral,max_depth = None,0.998701,0.999091,0.998896,0.998034,0.06456,0.999857,13.36
+DoS,Decision Tree,balanced,max_depth = None,0.998507,0.999415,0.998961,0.99822,0.06456,0.999866,18.33
+DoS,Random Forest,netral,n_estimators = 200,0.998831,0.999285,0.999058,0.999937,0.06456,0.999878,83.34
+DoS,Random Forest,balanced,n_estimators = 200,0.998637,0.999675,0.999156,0.999204,0.06456,0.999891,81.61
+Infiltration,Logistic Regression,netral,C = 0.01,0.0,0.0,0.0,0.151261,0.123557,0.876443,4.77
+Infiltration,Logistic Regression,balanced,C = 0.01,0.13922,0.64907,0.229265,0.151516,0.123557,0.460791,7.04
+Infiltration,Decision Tree,netral,max_depth = None,0.088738,0.078536,0.083326,0.119451,0.123557,0.786498,41.5
+Infiltration,Decision Tree,balanced,max_depth = None,0.082423,0.105639,0.092598,0.119172,0.123557,0.744189,45.4
+Infiltration,Random Forest,netral,n_estimators = 100,0.053021,0.03726,0.043765,0.130587,0.123557,0.798821,66.71
+Infiltration,Random Forest,balanced,n_estimators = 100,0.099573,0.130676,0.113023,0.128579,0.123557,0.746582,56.5

@@ -1,0 +1,13 @@
+skenario,model,kondisi,true_negative,false_positive,false_negative,true_positive,jumlah_normal,jumlah_serangan
+DoS,Logistic Regression,netral,222837,213,50,15344,223050,15394
+DoS,Logistic Regression,balanced,222586,464,10,15384,223050,15394
+DoS,Decision Tree,netral,223030,20,14,15380,223050,15394
+DoS,Decision Tree,balanced,223027,23,9,15385,223050,15394
+DoS,Random Forest,netral,223032,18,11,15383,223050,15394
+DoS,Random Forest,balanced,223029,21,5,15389,223050,15394
+Infiltration,Logistic Regression,netral,120127,0,16935,0,120127,16935
+Infiltration,Logistic Regression,balanced,52165,67962,5943,10992,120127,16935
+Infiltration,Decision Tree,netral,106469,13658,15605,1330,120127,16935
+Infiltration,Decision Tree,balanced,100211,19916,15146,1789,120127,16935
+Infiltration,Random Forest,netral,108857,11270,16304,631,120127,16935
+Infiltration,Random Forest,balanced,100115,20012,14722,2213,120127,16935

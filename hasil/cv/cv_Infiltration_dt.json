@@ -1,0 +1,73 @@
+{
+  "skenario": "Infiltration",
+  "kode_model": "dt",
+  "nama_model": "Decision Tree",
+  "kondisi_validasi": "netral, tanpa class_weight",
+  "kriteria_pemilihan": "f1",
+  "jumlah_lipatan": 5,
+  "random_state": 42,
+  "jumlah_data_latih": 319811,
+  "jumlah_fitur": 77,
+  "kandidat_diuji": {
+    "max_depth": [
+      null,
+      5,
+      10,
+      15
+    ]
+  },
+  "hasil_setiap_kandidat": [
+    {
+      "parameter": {
+        "max_depth": null
+      },
+      "skor_rata_rata": 0.09721958722650173,
+      "skor_simpangan_baku": 0.00129030356331399,
+      "waktu_latih_rata_rata_detik": 23.443411111831665,
+      "peringkat": 1
+    },
+    {
+      "parameter": {
+        "max_depth": 15
+      },
+      "skor_rata_rata": 0.05943484657789424,
+      "skor_simpangan_baku": 0.0061524716111225645,
+      "waktu_latih_rata_rata_detik": 16.204098987579346,
+      "peringkat": 2
+    },
+    {
+      "parameter": {
+        "max_depth": 10
+      },
+      "skor_rata_rata": 0.034425522239602865,
+      "skor_simpangan_baku": 0.00453797359542454,
+      "waktu_latih_rata_rata_detik": 15.23759183883667,
+      "peringkat": 3
+    },
+    {
+      "parameter": {
+        "max_depth": 5
+      },
+      "skor_rata_rata": 0.0005056699716457806,
+      "skor_simpangan_baku": 0.00031978050905817504,
+      "waktu_latih_rata_rata_detik": 9.114692974090577,
+      "peringkat": 4
+    }
+  ],
+  "hyperparameter_terpilih": {
+    "max_depth": null
+  },
+  "skor_f1_terbaik": 0.09721958722650173,
+  "waktu_pencarian_detik": 321.53,
+  "jumlah_peringatan_konvergensi": 0,
+  "max_iter_logistic_regression": null,
+  "lingkungan": [
+    "Waktu mulai    : 24-10-2026 23:35:56",
+    "Sistem operasi : Windows-11-10.0.26200-SP0",
+    "Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD",
+    "Python         : 3.13.7",
+    "pandas         : 2.3.3",
+    "numpy          : 2.2.3",
+    "scikit-learn   : 1.9.0"
+  ]
+}

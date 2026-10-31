@@ -1,0 +1,44 @@
+======================================================================
+SKENARIO DOS - DECISION TREE - KONDISI BALANCED
+======================================================================
+
+Waktu mulai    : 25-10-2026 13:57:45
+Sistem operasi : Windows-11-10.0.26200-SP0
+Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+Python         : 3.13.7
+pandas         : 2.3.3
+numpy          : 2.2.3
+scikit-learn   : 1.9.0
+
+--- Konfigurasi ---
+Model              : Decision Tree
+Penanganan imbalance: class_weight = balanced
+Hyperparameter     : {'max_depth': None}
+  diambil dari hasil validasi silang, F1 = 0.9987
+Data latih         : 556.368 baris
+Data uji           : 238.444 baris (normal 223.050, serangan 15.394)
+
+--- Pelatihan ---
+Waktu pelatihan    : 18.33 detik
+Waktu prediksi     : 0.28 detik
+
+--- Metrik pada data uji ---
+Precision          : 0.9985  (99,85%)
+Recall             : 0.9994  (99,94%)
+F1-score           : 0.9990  (99,90%)
+PR-AUC             : 0.9982
+  pembanding acak    : 0.0646 (proporsi kelas serangan pada data uji)
+Akurasi (pembanding): 0.9999  (99,99%)
+
+Confusion matrix:
+  True Negative  (normal diprediksi normal)     : 223.027
+  False Positive (normal diprediksi serangan)   : 23
+  False Negative (serangan diprediksi normal)   : 9
+  True Positive  (serangan diprediksi serangan) : 15.385
+
+Probabilitas prediksi disimpan ke: hasil\model/proba_DoS_dt_balanced.npy
+
+Metrik disimpan ke: hasil\model/metrik_DoS_dt_balanced.json
+
+======================================================================
+Total waktu: 18.77 detik

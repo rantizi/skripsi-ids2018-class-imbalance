@@ -1,0 +1,154 @@
+PEMERIKSAAN NILAI PENCILAN DENGAN METODE INTERQUARTILE RANGE (IQR)
+
+Batas bawah = Q1 - 1,5 x IQR
+Batas atas  = Q3 + 1,5 x IQR
+Tidak ada baris maupun nilai yang dihapus oleh skrip ini.
+
+Waktu mulai    : 24-10-2026 23:08:04
+Sistem operasi : Windows-11-10.0.26200-SP0
+Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+Python         : 3.13.7
+pandas         : 2.3.3
+numpy          : 2.2.3
+scikit-learn   : 1.9.0
+
+======================================================================
+SKENARIO DOS
+======================================================================
+Berkas       : DoS1-Thursday-15-02-2018_TrafficForML_CICFlowMeter.parquet
+Jumlah baris : 794.812
+Jumlah fitur : 77
+Waktu muat   : 0.55 detik
+Waktu hitung : 1.17 detik
+Rincian seluruh fitur disimpan ke: hasil\outlier/outlier_DoS.csv
+
+--- Ringkasan ---
+Fitur numerik yang diperiksa      : 77
+Fitur dengan IQR bernilai nol     : 25
+Fitur dengan IQR lebih dari nol   : 52
+Fitur tanpa nilai pencilan        : 12
+Fitur yang memuat nilai negatif   : 2
+
+Catatan mengenai fitur dengan IQR bernilai nol:
+Pada fitur tersebut, kuartil 1 dan kuartil 3 bernilai sama, sehingga batas
+bawah dan batas atas berimpit. Akibatnya setiap nilai yang berbeda dari
+nilai tengah langsung terhitung sebagai pencilan. Persentase pencilan pada
+kelompok fitur ini tidak dapat ditafsirkan dengan cara yang sama seperti
+fitur lain, sehingga dilaporkan secara terpisah.
+
+--- Fitur dengan IQR bernilai nol (25 fitur) ---
+  Idle Min                     nilai tengah = 0              pencilan =    161.915 (20,37%)
+  Idle Mean                    nilai tengah = 0              pencilan =    161.915 (20,37%)
+  Idle Max                     nilai tengah = 0              pencilan =    161.915 (20,37%)
+  ACK Flag Count               nilai tengah = 0              pencilan =    157.514 (19,82%)
+  Active Mean                  nilai tengah = 0              pencilan =    140.006 (17,61%)
+  Active Max                   nilai tengah = 0              pencilan =    140.006 (17,61%)
+  Active Min                   nilai tengah = 0              pencilan =    140.006 (17,61%)
+  Idle Std                     nilai tengah = 0              pencilan =    108.380 (13,64%)
+  Active Std                   nilai tengah = 0              pencilan =     94.573 (11,90%)
+  RST Flag Count               nilai tengah = 0              pencilan =     63.949 (8,05%)
+  ECE Flag Count               nilai tengah = 0              pencilan =     63.947 (8,05%)
+  Fwd PSH Flags                nilai tengah = 0              pencilan =     41.253 (5,19%)
+  SYN Flag Count               nilai tengah = 0              pencilan =     41.253 (5,19%)
+  URG Flag Count               nilai tengah = 0              pencilan =     18.847 (2,37%)
+  FIN Flag Count               nilai tengah = 0              pencilan =      2.659 (0,33%)
+  ... dan 10 fitur lain, selengkapnya pada berkas CSV.
+
+--- 15 fitur dengan persentase pencilan tertinggi (IQR lebih dari nol) ---
+  Bwd Packets/s                bawah =         0  atas =    186.419  total = 23,45%
+  Fwd IAT Min                  bawah =         0  atas =    186.277  total = 23,44%
+  Flow IAT Std                 bawah =         0  atas =    176.145  total = 22,16%
+  Bwd IAT Min                  bawah =         0  atas =    174.911  total = 22,01%
+  Bwd IAT Max                  bawah =         0  atas =    174.753  total = 21,99%
+  Flow IAT Min                 bawah =         0  atas =    165.730  total = 20,85%
+  Flow Duration                bawah =         0  atas =    164.569  total = 20,71%
+  Bwd IAT Std                  bawah =         0  atas =    164.268  total = 20,67%
+  Fwd IAT Total                bawah =         0  atas =    162.125  total = 20,40%
+  Fwd IAT Mean                 bawah =         0  atas =    161.177  total = 20,28%
+  Bwd IAT Mean                 bawah =         0  atas =    161.148  total = 20,27%
+  Flow Bytes/s                 bawah =         0  atas =    153.124  total = 19,27%
+  Init Bwd Win Bytes           bawah =         0  atas =    151.561  total = 19,07%
+  Fwd IAT Std                  bawah =         0  atas =    149.799  total = 18,85%
+  Flow IAT Mean                bawah =         0  atas =    139.309  total = 17,53%
+
+--- Fitur yang memuat nilai negatif ---
+  Nilai negatif perlu ditinjau satu per satu. Pada sebagian fitur,
+  nilai negatif memang tidak mungkin terjadi dan menandakan kesalahan
+  pengukuran. Pada fitur lain, nilai negatif dipakai sebagai penanda
+  bahwa nilainya tidak teramati, sehingga bukan kesalahan.
+
+  Init Bwd Win Bytes           jumlah =    368.718 (46,39%)  nilai minimum = -1
+  Init Fwd Win Bytes           jumlah =    264.723 (33,31%)  nilai minimum = -1
+
+======================================================================
+SKENARIO INFILTRATION
+======================================================================
+Berkas       : Infil1-Wednesday-28-02-2018_TrafficForML_CICFlowMeter.parquet
+Jumlah baris : 456.873
+Jumlah fitur : 77
+Waktu muat   : 0.17 detik
+Waktu hitung : 0.65 detik
+Rincian seluruh fitur disimpan ke: hasil\outlier/outlier_Infiltration.csv
+
+--- Ringkasan ---
+Fitur numerik yang diperiksa      : 77
+Fitur dengan IQR bernilai nol     : 23
+Fitur dengan IQR lebih dari nol   : 54
+Fitur tanpa nilai pencilan        : 12
+Fitur yang memuat nilai negatif   : 2
+
+Catatan mengenai fitur dengan IQR bernilai nol:
+Pada fitur tersebut, kuartil 1 dan kuartil 3 bernilai sama, sehingga batas
+bawah dan batas atas berimpit. Akibatnya setiap nilai yang berbeda dari
+nilai tengah langsung terhitung sebagai pencilan. Persentase pencilan pada
+kelompok fitur ini tidak dapat ditafsirkan dengan cara yang sama seperti
+fitur lain, sehingga dilaporkan secara terpisah.
+
+--- Fitur dengan IQR bernilai nol (23 fitur) ---
+  Idle Max                     nilai tengah = 0              pencilan =    100.637 (22,03%)
+  Idle Mean                    nilai tengah = 0              pencilan =    100.637 (22,03%)
+  Idle Min                     nilai tengah = 0              pencilan =    100.637 (22,03%)
+  Active Mean                  nilai tengah = 0              pencilan =     94.409 (20,66%)
+  Active Min                   nilai tengah = 0              pencilan =     94.409 (20,66%)
+  Active Max                   nilai tengah = 0              pencilan =     94.409 (20,66%)
+  ACK Flag Count               nilai tengah = 0              pencilan =     86.702 (18,98%)
+  Idle Std                     nilai tengah = 0              pencilan =     65.903 (14,42%)
+  Active Std                   nilai tengah = 0              pencilan =     56.227 (12,31%)
+  Fwd PSH Flags                nilai tengah = 0              pencilan =     32.849 (7,19%)
+  SYN Flag Count               nilai tengah = 0              pencilan =     32.849 (7,19%)
+  URG Flag Count               nilai tengah = 0              pencilan =     14.806 (3,24%)
+  FIN Flag Count               nilai tengah = 0              pencilan =      1.782 (0,39%)
+  Fwd URG Flags                nilai tengah = 0              pencilan =      1.313 (0,29%)
+  CWE Flag Count               nilai tengah = 0              pencilan =      1.313 (0,29%)
+  ... dan 8 fitur lain, selengkapnya pada berkas CSV.
+
+--- 15 fitur dengan persentase pencilan tertinggi (IQR lebih dari nol) ---
+  Bwd IAT Min                  bawah =         0  atas =    106.366  total = 23,28%
+  Flow IAT Std                 bawah =         0  atas =    104.079  total = 22,78%
+  Init Bwd Win Bytes           bawah =         0  atas =     98.196  total = 21,49%
+  Fwd IAT Min                  bawah =         0  atas =     97.515  total = 21,34%
+  Fwd IAT Total                bawah =         0  atas =     97.091  total = 21,25%
+  Fwd IAT Max                  bawah =         0  atas =     97.001  total = 21,23%
+  Flow IAT Mean                bawah =         0  atas =     92.724  total = 20,30%
+  Fwd IAT Mean                 bawah =         0  atas =     92.694  total = 20,29%
+  Bwd IAT Max                  bawah =         0  atas =     88.573  total = 19,39%
+  Fwd IAT Std                  bawah =         0  atas =     88.270  total = 19,32%
+  Bwd IAT Total                bawah =         0  atas =     87.979  total = 19,26%
+  Flow Duration                bawah =         0  atas =     87.160  total = 19,08%
+  Flow IAT Max                 bawah =         0  atas =     86.648  total = 18,97%
+  Bwd IAT Mean                 bawah =         0  atas =     84.981  total = 18,60%
+  Bwd IAT Std                  bawah =         0  atas =     83.114  total = 18,19%
+
+--- Fitur yang memuat nilai negatif ---
+  Nilai negatif perlu ditinjau satu per satu. Pada sebagian fitur,
+  nilai negatif memang tidak mungkin terjadi dan menandakan kesalahan
+  pengukuran. Pada fitur lain, nilai negatif dipakai sebagai penanda
+  bahwa nilainya tidak teramati, sehingga bukan kesalahan.
+
+  Init Bwd Win Bytes           jumlah =    230.976 (50,56%)  nilai minimum = -1
+  Init Fwd Win Bytes           jumlah =    180.985 (39,61%)  nilai minimum = -1
+
+======================================================================
+SELESAI
+======================================================================
+Total waktu eksekusi: 2.65 detik

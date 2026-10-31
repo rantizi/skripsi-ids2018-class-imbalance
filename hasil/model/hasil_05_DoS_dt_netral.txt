@@ -1,0 +1,44 @@
+======================================================================
+SKENARIO DOS - DECISION TREE - KONDISI NETRAL
+======================================================================
+
+Waktu mulai    : 25-10-2026 13:57:31
+Sistem operasi : Windows-11-10.0.26200-SP0
+Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+Python         : 3.13.7
+pandas         : 2.3.3
+numpy          : 2.2.3
+scikit-learn   : 1.9.0
+
+--- Konfigurasi ---
+Model              : Decision Tree
+Penanganan imbalance: tanpa penanganan
+Hyperparameter     : {'max_depth': None}
+  diambil dari hasil validasi silang, F1 = 0.9987
+Data latih         : 556.368 baris
+Data uji           : 238.444 baris (normal 223.050, serangan 15.394)
+
+--- Pelatihan ---
+Waktu pelatihan    : 13.36 detik
+Waktu prediksi     : 0.29 detik
+
+--- Metrik pada data uji ---
+Precision          : 0.9987  (99,87%)
+Recall             : 0.9991  (99,91%)
+F1-score           : 0.9989  (99,89%)
+PR-AUC             : 0.9980
+  pembanding acak    : 0.0646 (proporsi kelas serangan pada data uji)
+Akurasi (pembanding): 0.9999  (99,99%)
+
+Confusion matrix:
+  True Negative  (normal diprediksi normal)     : 223.030
+  False Positive (normal diprediksi serangan)   : 20
+  False Negative (serangan diprediksi normal)   : 14
+  True Positive  (serangan diprediksi serangan) : 15.380
+
+Probabilitas prediksi disimpan ke: hasil\model/proba_DoS_dt_netral.npy
+
+Metrik disimpan ke: hasil\model/metrik_DoS_dt_netral.json
+
+======================================================================
+Total waktu: 13.81 detik

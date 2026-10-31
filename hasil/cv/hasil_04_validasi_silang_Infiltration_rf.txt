@@ -1,0 +1,43 @@
+======================================================================
+VALIDASI SILANG - SKENARIO INFILTRATION - RANDOM FOREST
+======================================================================
+
+Waktu mulai    : 25-10-2026 12:51:09
+Sistem operasi : Windows-11-10.0.26200-SP0
+Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+Python         : 3.13.7
+pandas         : 2.3.3
+numpy          : 2.2.3
+scikit-learn   : 1.9.0
+
+--- Menyiapkan data ---
+Waktu siapkan  : 1.33 detik
+Data latih     : 319.811 baris, 77 fitur
+  kelas normal   : 280.297
+  kelas serangan : 39.514 (12,36%)
+Data uji       : 137.062 baris (tidak dipakai pada tahap ini)
+
+--- Pengaturan validasi silang ---
+Model          : Random Forest
+Kondisi        : netral, tanpa class_weight
+Pembagian      : StratifiedKFold(5, shuffle=True, random_state=42)
+Kriteria       : f1 pada kelas positif
+Kandidat       : {'n_estimators': [100, 200]}
+Jumlah pelatihan yang dijalankan: 2 kandidat x 5 lipatan = 10 kali
+
+Proses ini memakan waktu. Kemajuannya tercetak di layar selama berjalan.
+
+--- Hasil validasi silang ---
+Waktu pencarian: 631.92 detik (10.5 menit)
+
+Skor F1 rata-rata untuk setiap kandidat, diurutkan dari yang terbaik:
+  1. n_estimators = 100           F1 = 0.0534 (simpangan baku 0.0020, rata-rata 42.7 detik per pelatihan)
+  2. n_estimators = 200           F1 = 0.0521 (simpangan baku 0.0028, rata-rata 80.9 detik per pelatihan)
+
+Hyperparameter terpilih : {'n_estimators': 100}
+Skor F1 terbaik         : 0.0534
+
+Hyperparameter terpilih disimpan ke: hasil\cv/cv_Infiltration_rf.json
+
+======================================================================
+Total waktu: 633.28 detik

@@ -1,5 +1,7 @@
-# Pustaka yang digunakan pada uji coba awal (01_cek_dataset.py dan 02_uji_coba_awal_rf.py)
-# Lingkungan: Python 3.13.7, Windows 11 Home Single Language 64-bit,
+# Pustaka yang digunakan pada seluruh skrip di repository ini
+# (01_cek_dataset.py sampai 06_ringkas_hasil.py)
+#
+# Lingkungan: Python 3.13.7, Windows 11 Home Single Language 25H2 64-bit,
 #             AMD Ryzen 3 7320U, RAM 8 GB, tanpa GPU.
 #
 # Pemasangan:
@@ -9,8 +11,3 @@ pandas==2.3.3
 numpy==2.2.3
 scikit-learn==1.9.0
 pyarrow==22.0.0
-
-# Catatan:
-# streamlit==1.50.0 sudah terpasang pada lingkungan ini, namun belum digunakan
-# oleh kedua skrip di atas. Streamlit dan plotly akan dicantumkan pada tahap
-# pembuatan dashboard visualisasi.

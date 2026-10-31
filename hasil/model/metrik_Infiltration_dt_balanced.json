@@ -1,0 +1,41 @@
+{
+  "skenario": "Infiltration",
+  "kode_model": "dt",
+  "nama_model": "Decision Tree",
+  "kondisi": "balanced",
+  "class_weight": "balanced",
+  "hyperparameter": {
+    "max_depth": null
+  },
+  "skor_f1_validasi_silang": 0.09721958722650173,
+  "jumlah_data_latih": 319811,
+  "jumlah_data_uji": 137062,
+  "metrik": {
+    "precision": 0.08242340474545036,
+    "recall": 0.10563920873929732,
+    "f1": 0.0925983436853002,
+    "pr_auc": 0.1191716001457547,
+    "pr_auc_pembanding_acak": 0.12355722227896865,
+    "akurasi": 0.7441887612905108
+  },
+  "confusion_matrix": {
+    "true_negative": 100211,
+    "false_positive": 19916,
+    "false_negative": 15146,
+    "true_positive": 1789
+  },
+  "waktu_pelatihan_detik": 45.4,
+  "waktu_prediksi_detik": 0.35,
+  "berkas_probabilitas": "proba_Infiltration_dt_balanced.npy",
+  "berkas_importance": null,
+  "catatan_pr_auc": "dihitung dengan average_precision_score",
+  "lingkungan": [
+    "Waktu mulai    : 25-10-2026 14:02:38",
+    "Sistem operasi : Windows-11-10.0.26200-SP0",
+    "Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD",
+    "Python         : 3.13.7",
+    "pandas         : 2.3.3",
+    "numpy          : 2.2.3",
+    "scikit-learn   : 1.9.0"
+  ]
+}

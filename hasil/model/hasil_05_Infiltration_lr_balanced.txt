@@ -1,0 +1,44 @@
+======================================================================
+SKENARIO INFILTRATION - LOGISTIC REGRESSION - KONDISI BALANCED
+======================================================================
+
+Waktu mulai    : 25-10-2026 14:01:02
+Sistem operasi : Windows-11-10.0.26200-SP0
+Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+Python         : 3.13.7
+pandas         : 2.3.3
+numpy          : 2.2.3
+scikit-learn   : 1.9.0
+
+--- Konfigurasi ---
+Model              : Logistic Regression
+Penanganan imbalance: class_weight = balanced
+Hyperparameter     : {'clf__C': 0.01}
+  diambil dari hasil validasi silang, F1 = 0.0001
+Data latih         : 319.811 baris
+Data uji           : 137.062 baris (normal 120.127, serangan 16.935)
+
+--- Pelatihan ---
+Waktu pelatihan    : 7.04 detik
+Waktu prediksi     : 0.29 detik
+
+--- Metrik pada data uji ---
+Precision          : 0.1392  (13,92%)
+Recall             : 0.6491  (64,91%)
+F1-score           : 0.2293  (22,93%)
+PR-AUC             : 0.1515
+  pembanding acak    : 0.1236 (proporsi kelas serangan pada data uji)
+Akurasi (pembanding): 0.4608  (46,08%)
+
+Confusion matrix:
+  True Negative  (normal diprediksi normal)     : 52.165
+  False Positive (normal diprediksi serangan)   : 67.962
+  False Negative (serangan diprediksi normal)   : 5.943
+  True Positive  (serangan diprediksi serangan) : 10.992
+
+Probabilitas prediksi disimpan ke: hasil\model/proba_Infiltration_lr_balanced.npy
+
+Metrik disimpan ke: hasil\model/metrik_Infiltration_lr_balanced.json
+
+======================================================================
+Total waktu: 7.47 detik

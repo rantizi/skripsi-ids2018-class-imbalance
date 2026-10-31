@@ -1,0 +1,7 @@
+skenario,model,hyperparameter_terpilih,f1_validasi_silang,simpangan_baku,kandidat_peringkat_2,f1_peringkat_2,selisih_dengan_peringkat_2,waktu_pencarian_detik
+DoS,Logistic Regression,C = 10,0.99148,0.000711,C = 1,0.990426,0.001054,103.02
+DoS,Decision Tree,max_depth = None,0.99872,0.000505,max_depth = 15,0.998664,5.6e-05,153.07
+DoS,Random Forest,n_estimators = 200,0.999039,0.000297,n_estimators = 100,0.999026,1.4e-05,433.83
+Infiltration,Logistic Regression,C = 0.01,5.1e-05,0.000101,C = 10,5.1e-05,0.0,90.59
+Infiltration,Decision Tree,max_depth = None,0.09722,0.00129,max_depth = 15,0.059435,0.037785,321.53
+Infiltration,Random Forest,n_estimators = 100,0.053361,0.002002,n_estimators = 200,0.052062,0.001299,631.92

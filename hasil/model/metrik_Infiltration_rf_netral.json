@@ -1,0 +1,41 @@
+{
+  "skenario": "Infiltration",
+  "kode_model": "rf",
+  "nama_model": "Random Forest",
+  "kondisi": "netral",
+  "class_weight": null,
+  "hyperparameter": {
+    "n_estimators": 100
+  },
+  "skor_f1_validasi_silang": 0.05336065670423362,
+  "jumlah_data_latih": 319811,
+  "jumlah_data_uji": 137062,
+  "metrik": {
+    "precision": 0.053020754558440464,
+    "recall": 0.03726011219368172,
+    "f1": 0.043764738521292826,
+    "pr_auc": 0.1305867410560112,
+    "pr_auc_pembanding_acak": 0.12355722227896865,
+    "akurasi": 0.7988209715311319
+  },
+  "confusion_matrix": {
+    "true_negative": 108857,
+    "false_positive": 11270,
+    "false_negative": 16304,
+    "true_positive": 631
+  },
+  "waktu_pelatihan_detik": 66.71,
+  "waktu_prediksi_detik": 5.14,
+  "berkas_probabilitas": "proba_Infiltration_rf_netral.npy",
+  "berkas_importance": "importance_Infiltration_rf_netral.csv",
+  "catatan_pr_auc": "dihitung dengan average_precision_score",
+  "lingkungan": [
+    "Waktu mulai    : 25-10-2026 14:03:51",
+    "Sistem operasi : Windows-11-10.0.26200-SP0",
+    "Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD",
+    "Python         : 3.13.7",
+    "pandas         : 2.3.3",
+    "numpy          : 2.2.3",
+    "scikit-learn   : 1.9.0"
+  ]
+}

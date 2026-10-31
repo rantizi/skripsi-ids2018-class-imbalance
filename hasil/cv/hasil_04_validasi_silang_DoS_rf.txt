@@ -1,0 +1,43 @@
+======================================================================
+VALIDASI SILANG - SKENARIO DOS - RANDOM FOREST
+======================================================================
+
+Waktu mulai    : 25-10-2026 12:43:52
+Sistem operasi : Windows-11-10.0.26200-SP0
+Prosesor       : AMD64 Family 23 Model 160 Stepping 0, AuthenticAMD
+Python         : 3.13.7
+pandas         : 2.3.3
+numpy          : 2.2.3
+scikit-learn   : 1.9.0
+
+--- Menyiapkan data ---
+Waktu siapkan  : 2.80 detik
+Data latih     : 556.368 baris, 77 fitur
+  kelas normal   : 520.448
+  kelas serangan : 35.920 (6,46%)
+Data uji       : 238.444 baris (tidak dipakai pada tahap ini)
+
+--- Pengaturan validasi silang ---
+Model          : Random Forest
+Kondisi        : netral, tanpa class_weight
+Pembagian      : StratifiedKFold(5, shuffle=True, random_state=42)
+Kriteria       : f1 pada kelas positif
+Kandidat       : {'n_estimators': [100, 200]}
+Jumlah pelatihan yang dijalankan: 2 kandidat x 5 lipatan = 10 kali
+
+Proses ini memakan waktu. Kemajuannya tercetak di layar selama berjalan.
+
+--- Hasil validasi silang ---
+Waktu pencarian: 433.83 detik (7.2 menit)
+
+Skor F1 rata-rata untuk setiap kandidat, diurutkan dari yang terbaik:
+  1. n_estimators = 200           F1 = 0.9990 (simpangan baku 0.0003, rata-rata 58.2 detik per pelatihan)
+  2. n_estimators = 100           F1 = 0.9990 (simpangan baku 0.0003, rata-rata 27.7 detik per pelatihan)
+
+Hyperparameter terpilih : {'n_estimators': 200}
+Skor F1 terbaik         : 0.9990
+
+Hyperparameter terpilih disimpan ke: hasil\cv/cv_DoS_rf.json
+
+======================================================================
+Total waktu: 436.75 detik
